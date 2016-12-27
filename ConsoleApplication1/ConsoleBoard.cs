@@ -61,7 +61,7 @@ namespace ConsoleApplication1
             GameManager.SaveTable();
         }
     }
-        class BoardConsole
+    class BoardConsole
     {
         protected static void WriteWhichPlayerShouldMove()
         {
@@ -157,8 +157,17 @@ namespace ConsoleApplication1
                     takeInfoToPrint(Fig, board);//Writing everything in table, capital letters for black
                 }
             }
+            System.Console.Write(" \t");
+            for (int c = 0; c < 9; c++)
+            {
+                System.Console.Write(c);
+                System.Console.Write("\t");
+            }
+            System.Console.WriteLine("");
             for (int r = 0; r < 9; r++) //Printing table, lowercase letter goes red
             {
+                System.Console.Write(r);
+                System.Console.Write("\t");
                 for (int c = 0; c < 9; c++)
                 {
                     if (hint==true&&Figure.fields[r,c]==true)

@@ -12,13 +12,13 @@ namespace ConsoleApplication1
         public static int MoveCounter = 0;
         private static string incrementationFileName()
         {
-            string path = "D:\\savedgame";
+            string path = "F:\\szachy\\savedgame";
             path = path.Insert(path.Length, MoveCounter.ToString());
             return path;
         }
         public static void LoadTable()
         {
-            Figure.listOfFigures.Clear();
+            if(Figure.listOfFigures != null ) Figure.listOfFigures.Clear();
             bool tempIsPromoted, tempIsBlack;
             byte tempRow, tempColumn;
             string tempFigureType;

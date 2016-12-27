@@ -108,7 +108,7 @@ namespace ConsoleApplication1
                     if (copy[i, j] == true)
                     {
                         WhereToMove(i, j);
-                        if (IsAnyMovePossible() == true)
+                        if (IsAnyMovePossible(i, j) == true)
                         {
                             copy2[i, j] = true;
                         }
@@ -122,11 +122,11 @@ namespace ConsoleApplication1
                 FindEnemyKing(out r, out c);
                 if (isBlack == true)
                 {
-                    copy2[r + 1, c] = false;
+                    if ( (r - 1)  <= 8)  copy2[r + 1, c] = false;
                 }
                 if (IsBlack == false)
                 {
-                    copy2[r - 1, c] = false;
+                    if( ( r - 1 ) >= 0) copy2[r - 1, c] = false;
                 }
                 if (isBlack == true)
                 {
@@ -134,7 +134,7 @@ namespace ConsoleApplication1
                     {
                         if (Figtest.isBlack == true && Figtest.IsPawn() == true && Figtest.IsPromoted == false)
                             for (byte i = 0; i <= 8; i++)
-                                copy2[i, Figtest.Column] = false;
+                                if (Figtest.column <= 8) copy2[i, Figtest.Column] = false;
                     }
                 }
                 if (isBlack == false)
@@ -143,7 +143,7 @@ namespace ConsoleApplication1
                     {
                         if (Figtest.isBlack == false && Figtest.IsPawn() == true && Figtest.IsPromoted == false)
                             for (byte i = 0; i <= 8; i++)
-                                copy2[i, Figtest.Column] = false;
+                                if (Figtest.column <= 8) copy2[i, Figtest.Column] = false;
                     }
                 }
             }
@@ -211,11 +211,15 @@ namespace ConsoleApplication1
         public bool Ressurect(byte Row, byte Column)
         {
             this.WhereToRessurect();
-            if (fields[Row, Column] == true)
+            if (Row < 9 && Row >= 0 && Column < 9 && Column >= 0)
             {
-                this.Row = Row;
-                this.Column = Column;
-                return true;
+                if (fields[Row, Column] == true)
+                {
+                    this.Row = Row;
+                    this.Column = Column;
+                    return true;
+                }
+                else return false;
             }
             else return false;
         }
@@ -269,6 +273,16 @@ namespace ConsoleApplication1
                         return true;
             return false;
         }
+
+        public bool IsAnyMovePossible(byte r, byte c)
+        {
+            WhereToMove(r, c);
+            for (byte i = 0; i <= 8; i++)
+                for (byte j = 0; j <= 8; j++)
+                    if (fields[i, j] == true)
+                        return true;
+            return false;
+        }
         public void FindEnemyKing(out byte r, out byte c)
         {
             r = 254;
@@ -284,6 +298,7 @@ namespace ConsoleApplication1
                 }
             }
         }
+
         public void WhereToMove()
         {
             WhereToMove(this.Row, this.Column);

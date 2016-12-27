@@ -59,8 +59,21 @@ namespace ConsoleApplication1
 
                 sthIsStayHere = false;
                 byte nextRow = objectRow, nextColumn = objectColumn;
-                if(this.IsBlack) checkSingleField((byte)(nextRow+1), nextColumn, sthIsStayHere, otherFigureIndex, objectRow, objectColumn, Figure.listOfFigures, tab);
-                else checkSingleField((byte)(nextRow - 1), nextColumn, sthIsStayHere, otherFigureIndex, objectRow, objectColumn, Figure.listOfFigures, tab);
+
+                if (this.IsBlack)
+                {
+                    if ((byte)(nextRow + 1) >= 0 && (byte)(nextRow + 1) <= 8)
+                    {
+                        checkSingleField((byte)(nextRow + 1), nextColumn, sthIsStayHere, otherFigureIndex, objectRow, objectColumn, Figure.listOfFigures, tab);
+                    }
+                }
+                else
+                {
+                    if ((byte)(nextRow - 1) >= 0 && (byte)(nextRow - 1) <= 8)
+                    {
+                        checkSingleField((byte)(nextRow - 1), nextColumn, sthIsStayHere, otherFigureIndex, objectRow, objectColumn, Figure.listOfFigures, tab);
+                    }
+                }
             }
             else
             {
