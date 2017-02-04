@@ -293,5 +293,15 @@ namespace ShogiP1
                 for (byte j = 0; j < 9; j++)
                     TableToFrotend[i, j] = fields[i, j];
         }
+        public static bool IsAnyMovePossible(byte Row, byte Column)
+        {
+            Figure A = FindFigure(Row, Column);
+            A.WhereToMove();
+            for (int i = 0; i < 9; i++)
+                for (int j = 0; j < 9; j++)
+                    if (fields[i, j] == true)
+                        return true;
+            return false;
+        }
     }
 }

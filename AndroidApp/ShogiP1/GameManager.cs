@@ -74,6 +74,20 @@ namespace ShogiP1
                         }
                     }
                     return 61;
+                case 7:
+                    if (Figure.IsAnyMovePossible(StartRow, StartColumn))
+                        return 70;
+                    else
+                        return 71;
+                case 8:
+                    foreach (Figure FigureToRessurect in Figure.listOfFigures)
+                    {
+                        if (FigureToRessurect.Column == 255 && FigureToRessurect.GetType().ToString().Contains(name) && FigureToRessurect.IsBlack == BlackToMove)
+                        {
+                            return 80;
+                        }
+                    }
+                    return 81;
                 default:
                     return byte.MaxValue;
             }
