@@ -9,8 +9,8 @@ namespace ShogiP1
     {
         ImageButton[,] btTable;
 
-        Button resurrectButton;
-        Button undoButton;
+        private Button resurrectButton;
+        private Button undoButton;
 
         private static bool firstClick = true;
 
@@ -18,6 +18,8 @@ namespace ShogiP1
         private static byte actualColumn;
         private static byte targetRow;
         private static byte targetColumn;
+
+        public string resurrectFigureName;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -51,6 +53,9 @@ namespace ShogiP1
         private void ResurrectButton_Click(object sender, System.EventArgs e)
         {
             //resurrect list
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            dialog_Resurrection resDialog = new dialog_Resurrection();
+            resDialog.Show(transaction, "dialog fragment");
         }
 
         private void UndoButton_Click(object sender, System.EventArgs e)
