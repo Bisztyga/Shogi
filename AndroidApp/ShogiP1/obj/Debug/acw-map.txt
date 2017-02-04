@@ -1,0 +1,4 @@
+ShogiP1.MainActivity, ShogiP1;md53d6deb11d120b5abc6dd28f63d06c4c8.MainActivity
+ShogiP1.MainActivity, ShogiP1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md53d6deb11d120b5abc6dd28f63d06c4c8.MainActivity
+ShogiP1.MainActivity;md53d6deb11d120b5abc6dd28f63d06c4c8.MainActivity
+shogip1.MainActivity;md53d6deb11d120b5abc6dd28f63d06c4c8.MainActivity

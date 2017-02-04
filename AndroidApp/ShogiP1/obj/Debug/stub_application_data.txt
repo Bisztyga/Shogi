@@ -1,0 +1,2 @@
+android.app.Application
+ShogiP1.ShogiP1
