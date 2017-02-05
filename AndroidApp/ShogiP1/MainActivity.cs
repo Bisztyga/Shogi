@@ -37,9 +37,15 @@ namespace ShogiP1
             {
                 for (int k = 0; k < 9; k++)
                 {
+                    //Declaration of table of imageButtons in loop
                     string buttonID = "ImageButton" + w + k;
                     int resID = Resources.GetIdentifier(buttonID, "id", PackageName);
                     btTable[w, k] = FindViewById<ImageButton>(resID);
+
+                    //Add tags; Tags contain position of button; It use tags to send position of button to the event of clicked button
+                    string tag = "" + w + k;
+                    btTable[w, k].SetTag(resID, tag);
+
                     //Add events
                     btTable[w, k].Click += Field_Click;
                 }
@@ -65,21 +71,23 @@ namespace ShogiP1
 
         private void Field_Click(object sender, System.EventArgs e)
         {
+            string btId = (sender as ImageButton).GetTag((sender as ImageButton).Id).ToString();
+            btId.ToCharArray();
+            byte row = (byte)System.Char.GetNumericValue(btId[0]);
+            byte column = (byte)System.Char.GetNumericValue(btId[1]);
+
             if (firstClick)
             {
-                //check figure
+                actualRow = row;
+                actualColumn = column;
                 firstClick = false;
             }
             else
             {
-                //check field
-                //send actual position and target position to game engine
-
-                //if(MoveisDone)
-                //{
-                //firstClick = true;
-                //refreshBoard();
-                //}
+                targetRow = row;
+                targetColumn = column;
+                //if(DoMove)GameManager.DoSomething(2, actualRow, actualColumn, targetRow, targetColumn, "DoMove");
+                firstClick = true;
             }
         }
 
