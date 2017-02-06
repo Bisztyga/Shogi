@@ -115,64 +115,6 @@ F:\Android projekty\AndroidApp\ShogiP1\obj\Debug\android\assets\System.Runtime.S
 F:\Android projekty\AndroidApp\ShogiP1\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
 F:\Android projekty\AndroidApp\ShogiP1\obj\Debug\android\assets\System.Xml.dll.mdb
 F:\Android projekty\AndroidApp\ShogiP1\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+F:\Android projekty\AndroidApp\ShogiP1\obj\Debug\res\layout\resurrection_dialog.xml
 F:\Android projekty\AndroidApp\ShogiP1\obj\Debug\ShogiP1.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\ShogiP1.dll
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\ShogiP1.pdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\ShogiP1.ShogiP1.apk
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\ShogiP1.ShogiP1-Signed.apk
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\ShogiP1.csprojResolveAssemblyReference.cache
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\ShogiP1.dll
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\ShogiP1.pdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\bin\ShogiP1.ShogiP1.apk
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\layout\main.xml
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\values\strings.xml
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\icon.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\layout\board.xml
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\circle.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\bishop.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\field.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\gold.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\king.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\knight.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\lance.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\pawn.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\pbishop.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\pknight.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\plance.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\ppawn.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\psilver.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\ptower.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\silver.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\tower.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\pgold.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\prook.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\rook.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\res\drawable\pking.png
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\R.cs.flag
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\uploadflags.txt
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\Java.Interop.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\Mono.Android.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\mscorlib.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\ShogiP1.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\System.ComponentModel.Composition.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\System.Core.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\System.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\System.Net.Http.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\System.Runtime.Serialization.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\System.ServiceModel.Internals.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\System.Xml.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\System.Xml.Linq.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\Java.Interop.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\Mono.Android.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\mscorlib.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\ShogiP1.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\System.Core.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\System.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\System.Net.Http.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\System.Runtime.Serialization.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\System.Xml.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\obj\Debug\ShogiP1.dll.mdb
-C:\Gry\Shogi\AndroidApp\ShogiP1\bin\Debug\ShogiP1.dll.mdb
+F:\Android projekty\AndroidApp\ShogiP1\bin\Debug\ShogiP1.dll.mdb

@@ -115,12 +115,20 @@ public final class R {
         public static final int ImageButton86=0x7f05004e;
         public static final int ImageButton87=0x7f05004f;
         public static final int ImageButton88=0x7f050050;
+        public static final int bishopResurrectionButton=0x7f050055;
         public static final int buttonResurrect=0x7f050051;
         public static final int buttonUndo=0x7f050052;
+        public static final int goldResurrectionButton=0x7f050057;
+        public static final int knightResurrectionButton=0x7f050058;
+        public static final int lanceResurrectionButton=0x7f050054;
+        public static final int pownResurrectionButton=0x7f050053;
+        public static final int rookResurrectionButton=0x7f050059;
+        public static final int silverResurrectionButton=0x7f050056;
     }
     public static final class layout {
         public static final int board=0x7f030000;
         public static final int main=0x7f030001;
+        public static final int resurrection_dialog=0x7f030002;
     }
     public static final class string {
         public static final int ApplicationName=0x7f040001;
