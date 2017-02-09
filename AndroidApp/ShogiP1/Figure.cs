@@ -263,7 +263,7 @@ namespace ShogiP1
         public bool Move(byte Row, byte Column)
         {
             GameManager.LogMessageToFile("Moving Figure");
-            bool promoteflag;
+            bool promoteflag=false;
             promoteflag =this.StayInPromotionZone();
             if (IsSomethingThere(Row, Column) == false)
             {
@@ -279,12 +279,14 @@ namespace ShogiP1
             if (this.StayInPromotionZone() == true)
                 promoteflag = true;
             GameManager.LogMessageToFile("Figure moved");
-            if (this.IsLegalMovePossible(this.Row, this.Column))
+            if (!this.IsLegalMovePossible(this.Row, this.Column))
             {
                 GameManager.LogMessageToFile("Promotion forced");
                 Promote();
                 promoteflag = false;
             }
+            if (this.IsPromoted==true)
+                promoteflag=false;
             return promoteflag;
         }
         public static void GiveFieldsToFrontend()

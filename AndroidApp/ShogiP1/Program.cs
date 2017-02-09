@@ -12,7 +12,7 @@ namespace ShogiP1
         public static void SetUpProgram()
         {
             Figure.listOfFigures = new List<Figure>();
-            Figure.listOfFigures.Add(new Lance(0, 0, true, false));//0
+            Figure.listOfFigures.Add(new Lance(255, 255, true, false));//0
             Figure.listOfFigures.Add(new Knight(0, 1, true, false));//1
             Figure.listOfFigures.Add(new Silver(0, 2, true, false));//2
             Figure.listOfFigures.Add(new Gold(0, 3, true, false));//3

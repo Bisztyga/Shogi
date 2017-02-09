@@ -96,14 +96,17 @@ namespace ShogiP1
                 if (this.IsBlack)
                 {
                     nextRow--;
-                    if ((nextRow >= 0 && nextRow < 9) && (nextColumn >= 0 && nextColumn < 9)) checkSingleField(nextRow, nextColumn, sthIsStayHere, otherFigureIndex, objectRow, objectColumn, Figure.listOfFigures, tab);
+                    if ((nextRow >= 0 && nextRow < 9) && (nextColumn >= 0 && nextColumn < 9))
+                        checkSingleField(nextRow, nextColumn, sthIsStayHere, otherFigureIndex, objectRow, objectColumn, Figure.listOfFigures, tab);
                     nextRow++;
-                    nextColumn--;
                     for (int i = 1; i < 3; i++) //figure rowe and next row
                     {
+                        nextColumn = objectColumn;
+                        nextColumn--;
                         for (int j = 0; j < 3; j++) //all 3 columns
                         {
-                            if ((nextRow >= 0 && nextRow < 9) && (nextColumn >= 0 && nextColumn < 9)) checkSingleField(nextRow, nextColumn, sthIsStayHere, otherFigureIndex, objectRow, objectColumn, Figure.listOfFigures, tab);
+                            if ((nextRow >= 0 && nextRow < 9) && (nextColumn >= 0 && nextColumn < 9))
+                                checkSingleField(nextRow, nextColumn, sthIsStayHere, otherFigureIndex, objectRow, objectColumn, Figure.listOfFigures, tab);
                             nextColumn++;
                         }
                         nextRow++;
@@ -111,7 +114,7 @@ namespace ShogiP1
                 }
                 else
                 {
-                    nextRow++;
+                    nextRow--;
                     nextColumn--;
                     for (int i = 0; i < 2; i++)
                     {
@@ -120,10 +123,11 @@ namespace ShogiP1
                             if ((nextRow >= 0 && nextRow < 9) && (nextColumn >= 0 && nextColumn < 9)) checkSingleField(nextRow, nextColumn, sthIsStayHere, otherFigureIndex, objectRow, objectColumn, Figure.listOfFigures, tab);
                             nextColumn++;
                         }
-                        nextRow--;
+                        nextColumn -= 3;
+                        nextRow++;
                     }
                     nextRow = objectRow;
-                    nextRow--;
+                    nextRow++;
                     nextColumn = objectColumn;
                     if ((nextRow >= 0 && nextRow < 9) && (nextColumn >= 0 && nextColumn < 9)) checkSingleField(nextRow, nextColumn, sthIsStayHere, otherFigureIndex, objectRow, objectColumn, Figure.listOfFigures, tab);
                 }

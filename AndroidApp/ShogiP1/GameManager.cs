@@ -9,7 +9,7 @@ namespace ShogiP1
     static class GameManager
     {
 
-        public static byte DoSomething(byte code, byte StartRow=10, byte StartColumn=10, byte TargerRow=10, byte TargetColumn=10, string name="anything")
+        public static byte DoSomething(byte code, byte StartRow = 10, byte StartColumn = 10, byte TargetRow = 10, byte TargetColumn = 10, string name = "anything")
         {
             bool promoting;
             switch (code)
@@ -25,22 +25,16 @@ namespace ShogiP1
                 case 2: // Move 
                     LogMessageToFile("Decided to move");
                     Figure FigureToMove = Figure.FindFigure(StartRow, StartColumn);
-                    if (FigureToMove.IsBlack == BlackToMove)
-                        promoting = FigureToMove.Move(TargerRow, TargetColumn);
-                    else
-                    {
-                        LogMessageToFile("Wrong color of Figure");
-                        return 20;
-                    }
+                    promoting = FigureToMove.Move(TargetRow, TargetColumn);
                     if (promoting == true)
                     {
-                        return 21;
+                        return 20; //
                     }
                     NextMove();
-                    return 23;
+                    return 21;
                 case 3: // Promote
                     LogMessageToFile("Decided to promote");
-                    Figure FigureToPromote = Figure.FindFigure(StartRow, StartColumn);
+                    Figure FigureToPromote = Figure.FindFigure(TargetRow, TargetColumn);
                     FigureToPromote.Promote();
                     NextMove();
                     return 30;
@@ -48,16 +42,15 @@ namespace ShogiP1
                     LogMessageToFile("Decided to ressurect");
                     foreach (Figure FigureToRessurect in Figure.listOfFigures)
                     {
-                        if (FigureToRessurect.Column==255 && FigureToRessurect.GetType().ToString().Contains(name) && FigureToRessurect.IsBlack==BlackToMove)
+                        if (FigureToRessurect.Column == 255 && FigureToRessurect.GetType().ToString().Contains(name) && FigureToRessurect.IsBlack == BlackToMove)
                         {
-                            FigureToRessurect.Move(TargerRow, TargetColumn);
-                            return 40;  
+                            FigureToRessurect.Move(TargetRow, TargetColumn);
+                            NextMove();
+                            return 40;
                         }
                     }
-                    NextMove();
                     return 41;
                 case 5: //Fill "TableToFrontend" with possible moves
-                    Figure.clearMoveBoard(Figure.TableToFrotend);
                     Figure FigureTOCheckMoves = Figure.FindFigure(StartRow, StartColumn);
                     FigureTOCheckMoves.WhereToMove();
                     Figure.GiveFieldsToFrontend();
@@ -74,12 +67,12 @@ namespace ShogiP1
                         }
                     }
                     return 61;
-                case 7:
+                case 7://fast decision to unclick 70 if may be moved, 71 if not
                     if (Figure.IsAnyMovePossible(StartRow, StartColumn))
                         return 70;
                     else
                         return 71;
-                case 8:
+                case 8: //if there is any figure of that type...
                     foreach (Figure FigureToRessurect in Figure.listOfFigures)
                     {
                         if (FigureToRessurect.Column == 255 && FigureToRessurect.GetType().ToString().Contains(name) && FigureToRessurect.IsBlack == BlackToMove)
@@ -88,6 +81,9 @@ namespace ShogiP1
                         }
                     }
                     return 81;
+                case 9:
+                    Figure.clearMoveBoard(Figure.TableToFrotend);
+                    return 90;
                 default:
                     return byte.MaxValue;
             }
@@ -124,13 +120,13 @@ namespace ShogiP1
             path = path.Insert(path.Length, MoveCounter.ToString());
             return path;
         }
-        public static void LoadTable(bool load=false, string path="anything")
+        public static void LoadTable(bool load = false, string path = "anything")
         {
-            if(Figure.listOfFigures != null ) Figure.listOfFigures.Clear();
+            if (Figure.listOfFigures != null) Figure.listOfFigures.Clear();
             bool tempIsPromoted, tempIsBlack;
             byte tempRow, tempColumn;
             string tempFigureType;
-            if (load==false)
+            if (load == false)
                 path = incrementationFileName();
             string line;
             if (!(System.IO.File.Exists(path)))
@@ -197,16 +193,20 @@ namespace ShogiP1
         }
         public static void undoMove()
         {
-            MoveCounter -= 1;
-            incrementationFileName();
-            LoadTable();
-            if (BlackToMove) BlackToMove = false;
-            else BlackToMove = true;
+            if (MoveCounter != 0)
+            {
+                MoveCounter -= 1;
+                incrementationFileName();
+                LoadTable();
+                if (BlackToMove) BlackToMove = false;
+                else BlackToMove = true;
+            }
         }
-        private static void NextMove()
+        public static void NextMove()
         {
             MoveCounter += 1;
-            BlackToMove = BlackToMove ^ true; 
+            SaveTable();
+            BlackToMove = BlackToMove ^ true;
         }
     }
 }
