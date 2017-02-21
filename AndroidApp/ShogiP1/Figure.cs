@@ -124,21 +124,24 @@ namespace ShogiP1
                 byte r;
                 byte c;
                 FindEnemyKing(out r, out c);
-                if (isBlack == true)
+                if (isBlack == true)//checking if it wont intant-check king
                 {
-                    if ( (r - 1)  <= 8)  copy2[r + 1, c] = false;
+                    if ( r!=0)
+                        copy2[r - 1, c] = false;
                 }
                 if (IsBlack == false)
                 {
-                    if( ( r - 1 ) >= 0) copy2[r - 1, c] = false;
+                    if( r!=8)
+                        copy2[r + 1, c] = false;
                 }
-                if (isBlack == true)
+                if (isBlack == true) //checking if it would be more than 1 pawn in line
                 {
                     foreach (Figure Figtest in listOfFigures)
                     {
                         if (Figtest.isBlack == true && Figtest.IsPawn() == true && Figtest.IsPromoted == false)
                             for (byte i = 0; i <= 8; i++)
-                                if (Figtest.column <= 8) copy2[i, Figtest.Column] = false;
+                                if (Figtest.column <= 8)
+                                    copy2[i, Figtest.Column] = false;
                     }
                 }
                 if (isBlack == false)
@@ -147,7 +150,8 @@ namespace ShogiP1
                     {
                         if (Figtest.isBlack == false && Figtest.IsPawn() == true && Figtest.IsPromoted == false)
                             for (byte i = 0; i <= 8; i++)
-                                if (Figtest.column <= 8) copy2[i, Figtest.Column] = false;
+                                if (Figtest.column <= 8)
+                                    copy2[i, Figtest.Column] = false;
                     }
                 }
             }

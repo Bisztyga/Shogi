@@ -96,7 +96,7 @@ namespace ShogiP1
             {
                 await Task.Delay(100);
             }
-            resurrectFigureName = resDialog.resFigure;
+            resurrectFigureName = dialog_Resurrection.resFigure;
             if(GameManager.DoSomething((byte)Msg.PossibleRessurection, 10, 10, 10, 10, resurrectFigureName) == (byte)Msg.VPossibleRessurection)
             {
                 firstClick = false;
@@ -187,11 +187,11 @@ namespace ShogiP1
                         figureResurrection = false;
                     }
                 }
-
                 else //If it's illegal move
                 {
                     GameManager.DoSomething((byte)Msg.ClearGreen);
                     firstClick = true;
+                    figureResurrection = false;
                     refreshBoard();
                 }
             }

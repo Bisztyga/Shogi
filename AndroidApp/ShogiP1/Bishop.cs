@@ -17,20 +17,30 @@ namespace ShogiP1
 
         private bool block; //it lock line when sth is on piece way
         private bool sthIsStayHere = false;
-        private void checkSingleField(byte NextRow, byte nextColumn, byte x, byte y, List<Figure> FigList, bool[,] tab)
+        private void checkSingleField(byte NextRow, byte nextColumn, byte x, byte y, List<Figure> FigList, bool[,] tab, bool KingIteration=false)
         {
             int otherFigureIndex = 0;
             sthIsStayHere = false;
-            while (sthIsStayHere == false && otherFigureIndex < 40)
+            while (sthIsStayHere == false && otherFigureIndex < 40)//IF there is something
             {
                 if (FigList[otherFigureIndex].Row == NextRow && FigList[otherFigureIndex].Column == nextColumn)
                 {
                     sthIsStayHere = true;
                 }
                 else otherFigureIndex++;
-                if (otherFigureIndex == 40) sthIsStayHere = false;
+                if (otherFigureIndex == 40)
+                    sthIsStayHere = false;
             }
-            if (block == true) tab[NextRow, nextColumn] = false;
+            if (KingIteration)
+            {
+                if (sthIsStayHere == true && FigList[otherFigureIndex].IsBlack == GameManager.BlackToMove)
+                    tab[NextRow, nextColumn] = false;
+                else
+                    tab[NextRow, nextColumn] = true;
+                return;
+            }
+            if (block == true)
+                tab[NextRow, nextColumn] = false;
             else
             {
                 if (NextRow == x && nextColumn == y)
@@ -89,7 +99,7 @@ namespace ShogiP1
             nextColumn = objectColumn;
             block = false;
             
-            for (; (nextRow < 8) && (nextRow >= 0) && (nextColumn < 9) && (nextColumn >= 0);)
+            for (; (nextRow < 9) && (nextRow >= 0) && (nextColumn < 9) && (nextColumn >= 0);)
             {
                 {
                     checkSingleField(nextRow, nextColumn, objectRow, objectColumn, Figure.listOfFigures, tab);
@@ -124,6 +134,7 @@ namespace ShogiP1
 
             if (this.IsPromoted)    //promoted bishop = bishop + king
             {
+                block = false;
                 sthIsStayHere = false;
                 nextRow = objectRow;
                 nextColumn = objectColumn;
@@ -133,9 +144,11 @@ namespace ShogiP1
                 {
                     for (int j = 0; j < 3; j++)
                     {
-                        if ((nextRow >= 0 && nextRow <= 9) && (nextColumn >= 0 && nextColumn <= 9)) checkSingleField(nextRow, nextColumn, objectRow, objectColumn, Figure.listOfFigures, tab);
+                        if ((nextRow >= 0 && nextRow < 9) && (nextColumn >= 0 && nextColumn < 9))
+                            checkSingleField(nextRow, nextColumn, objectRow, objectColumn, Figure.listOfFigures, tab, true);
                         nextColumn++;
                     }
+                    nextColumn -=3;
                     nextRow--;
                 }
             }

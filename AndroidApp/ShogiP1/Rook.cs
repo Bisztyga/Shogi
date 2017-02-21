@@ -16,7 +16,7 @@ namespace ShogiP1
 
         private bool block; //it lock line when sth is on piece way
         private bool sthIsStayHere = false;
-        private void checkSingleField(byte NextRow, byte nextColumn, byte x, byte y, List<Figure> FigList, bool[,] tab)
+        private void checkSingleField(byte NextRow, byte nextColumn, byte x, byte y, List<Figure> FigList, bool[,] tab, bool KingIteration=false)
         {
             int otherFigureIndex = 0;
             sthIsStayHere = false;
@@ -28,6 +28,14 @@ namespace ShogiP1
                 }
                 else otherFigureIndex++;
                 if (otherFigureIndex == 40) sthIsStayHere = false;
+            }
+            if (KingIteration)
+            {
+                if (sthIsStayHere == true && FigList[otherFigureIndex].IsBlack == GameManager.BlackToMove)
+                    tab[NextRow, nextColumn] = false;
+                else
+                    tab[NextRow, nextColumn] = true;
+                return;
             }
             if (block == true) tab[NextRow, nextColumn] = false;
             else
@@ -129,10 +137,12 @@ namespace ShogiP1
                 {
                     for (int j = 0; j < 3; j++)
                     {
-                        if ((nextRow >= 0 && nextRow <= 9) && (nextColumn >= 0 && nextColumn <= 9)) checkSingleField(nextRow, nextColumn, objectRow, objectColumn, Figure.listOfFigures, tab);
+                        if ((nextRow >= 0 && nextRow <= 8) && (nextColumn >= 0 && nextColumn <= 8))
+                            checkSingleField(nextRow, nextColumn, objectRow, objectColumn, Figure.listOfFigures, tab, true);
                         nextColumn++;
                     }
                     nextRow--;
+                    nextColumn -= 3;
                 }
             }
             Figure.fields = tab;

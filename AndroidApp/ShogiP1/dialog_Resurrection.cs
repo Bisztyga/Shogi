@@ -16,7 +16,7 @@ namespace ShogiP1
     {
         Button[] btResurrection;
 
-        public string resFigure;
+        public static string resFigure;
 
         public static bool _continue = false;
 
@@ -39,10 +39,10 @@ namespace ShogiP1
         private void LoadResurrectionButtons(View view)
         {
             btResurrection = new Button[8];
-            btResurrection[0] = view.FindViewById<Button>(Resource.Id.pownResurrectionButton);
+            btResurrection[0] = view.FindViewById<Button>(Resource.Id.pawnResurrectionButton);
             btResurrection[0].Click += (object sender, EventArgs args) =>
             {
-                resFigure = "Pown";
+                resFigure = "Pawn";
                 _continue = true;
                 resurrectFigureNameWasChoosen = true;
                 this.Dismiss();
@@ -95,7 +95,7 @@ namespace ShogiP1
                 this.Dismiss();
             };
 
-            string[] NamesOfFigures = { "Pown", "Lance", "Bishop", "Silver", "Gold", "Knight", "Rook" };    
+            string[] NamesOfFigures = { "Pawn", "Lance", "Bishop", "Silver", "Gold", "Knight", "Rook" };    
             for (int i = 0; i < NamesOfFigures.Length; i++)
             {
                 if (isAnyDeathFigureOfType(NamesOfFigures[i])) btResurrection[i].Clickable = true;
@@ -109,7 +109,7 @@ namespace ShogiP1
             foreach (Figure fig in Figure.listOfFigures)
             {
                 string getType = fig.GetType().ToString(); //to debug
-                if (getType == "ShogiP1."+type && fig.Row==byte.MaxValue && fig.Column == byte.MaxValue)
+                if (getType == "ShogiP1."+type && fig.Row==byte.MaxValue && fig.Column == byte.MaxValue &&fig.IsBlack==GameManager.BlackToMove)
                 {
                     return true;
                 }
